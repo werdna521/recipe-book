@@ -2,6 +2,8 @@ package com.android.cen.andrew.recipebook
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.cen.andrew.recipebook.databinding.RecipeListItemBinding
@@ -14,7 +16,27 @@ class RecipeAdapter(private var recipes: List<Recipe>) : RecyclerView.Adapter<Re
         fun bind(recipe: Recipe) {
             binding.apply {
                 setRecipe(recipe)
+                pic = getRecipeTypeDrawableRes(recipe.recipeType)
                 executePendingBindings()
+            }
+        }
+
+        @DrawableRes
+        @ColorRes
+        private fun getRecipeTypeDrawableRes(typeId: Int): Int {
+            return when (typeId) {
+                0 -> R.drawable.ic_bread
+                1 -> R.drawable.ic_pastry
+                2 -> R.drawable.ic_cake
+                3 -> R.drawable.ic_donut
+                4 -> R.drawable.ic_fries
+                5 -> R.drawable.ic_medicine
+                6 -> R.drawable.ic_roll_cake
+                7 -> R.drawable.ic_sauce
+                8 -> R.drawable.ic_soup
+                9 -> R.drawable.ic_traditional_cake
+                10 -> R.drawable.ic_dimsum
+                else -> R.color.colorPrimaryDark
             }
         }
     }

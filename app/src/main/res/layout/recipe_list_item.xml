@@ -5,6 +5,9 @@
         <variable
             name="recipe"
             type="com.android.cen.andrew.recipebook.pojo.Recipe" />
+        <variable
+            name="pic"
+            type="int" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -12,34 +15,77 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        app:cardElevation="1dp">
+        app:cardElevation="1dp"
+        app:cardCornerRadius="@dimen/zero">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <RelativeLayout
             android:paddingStart="@dimen/padding_small"
             android:paddingEnd="@dimen/padding_small"
             android:paddingTop="@dimen/padding_small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                app:imageResource="@{pic}"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/card_text_size_primary"
-                android:textStyle="bold"
-                android:fontFamily="@font/product_sans"
-                android:text="@{recipe.recipeName}"/>
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_toEndOf="@id/thumbnail"
+                android:orientation="vertical">
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/card_bottom_space" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{recipe.recipeName}"
+                    android:textSize="@dimen/card_text_size_primary"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_salty"
+                        app:visible="@{recipe.isSalty}"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_sweet"
+                        app:visible="@{recipe.isSweet}"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_spicy"
+                        app:visible="@{recipe.isSpicy}"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_sour"
+                        app:visible="@{recipe.isSour}"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorPrimaryDark"
-                android:layout_marginStart="@dimen/margin_small"
-                android:layout_marginEnd="@dimen/margin_small"/>
-        </LinearLayout>
+                android:background="@color/darkGray"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/seperator_line_margin"
+                android:layout_marginStart="@dimen/seperator_line_margin"
+                android:layout_marginEnd="@dimen/margin_tiny"/>
+        </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>

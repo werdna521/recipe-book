@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="recipe"
             type="com.android.cen.andrew.recipebook.pojo.Recipe" />
     </data>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardElevation="1dp">
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingStart="@dimen/padding_small"
+            android:paddingEnd="@dimen/padding_small"
+            android:paddingTop="@dimen/padding_small"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{recipe.recipeName}"/>
-    </LinearLayout>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/card_text_size_primary"
+                android:textStyle="bold"
+                android:fontFamily="@font/product_sans"
+                android:text="@{recipe.recipeName}"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/card_bottom_space" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

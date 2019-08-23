@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="padding_wide">16dp</dimen>
+    <dimen name="card_text_size_primary">16sp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="margin_wide">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="card_bottom_space">7dp</dimen>
 </resources>

@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.android.cen.andrew.recipebook.databinding.RecipeListItemBinding
+import com.android.cen.andrew.recipebook.fragment.RecipeListFragmentDirections
 import com.android.cen.andrew.recipebook.pojo.Recipe
 
 class RecipeAdapter(private var recipes: List<Recipe>) : RecyclerView.Adapter<RecipeAdapter.RecipeHolder>() {
@@ -15,6 +17,9 @@ class RecipeAdapter(private var recipes: List<Recipe>) : RecyclerView.Adapter<Re
 
         fun bind(recipe: Recipe) {
             binding.apply {
+                card.setOnClickListener {
+                    binding.root.findNavController().navigate(RecipeListFragmentDirections.actionRecipeListFragmentToRecipeFragment(recipe.recipeId))
+                }
                 setRecipe(recipe)
                 pic = getRecipeTypeDrawableRes(recipe.recipeType)
                 executePendingBindings()

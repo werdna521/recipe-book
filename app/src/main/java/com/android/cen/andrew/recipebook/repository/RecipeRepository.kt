@@ -6,4 +6,6 @@ class RecipeRepository {
     private val recipeService = RecipeService.getService()
 
     suspend fun getAllRecipes() = recipeService.getAllRecipes()
+
+    suspend fun getRecipeDetails(recipeId: Int) = recipeService.getRecipeDetails(recipeId)
 }

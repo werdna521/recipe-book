@@ -41,6 +41,7 @@ class RecipeAdapter(private var recipes: List<Recipe>) : RecyclerView.Adapter<Re
                 8 -> R.drawable.ic_soup
                 9 -> R.drawable.ic_traditional_cake
                 10 -> R.drawable.ic_dimsum
+                11 -> R.drawable.ic_pancake
                 else -> R.color.colorPrimaryDark
             }
         }
